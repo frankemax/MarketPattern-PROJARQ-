@@ -18,37 +18,34 @@ public class Carrinho implements AtualizaCarrinhoObserver{
 
     public void PopulaCarrinho(){
         ArrayList<Produto> a = new ArrayList<Produto>();
+        ArrayList<Produto> b = new ArrayList<Produto>();
 
-        Produto p1 = new Produto(1.0,"Batata",1);
-        Produto p2 = new Produto(2.0,"Feijao",1);
-        Produto p3 = new Produto(3.0,"Maça",1);
-        Produto p4 = new Produto(1.0,"Repolho",1);
+        Produto p1 = new Produto(1.0,"Batata");
+        Produto p2 = new Produto(2.0,"Feijao");
+        Produto p3 = new Produto(3.0,"Maça");
+        Produto p4 = new Produto(1.0,"Repolho");
         a.add(p1);
         a.add(p2);
         a.add(p3);
         a.add(p4);
 
         this.listaTotal= a;
+        this.lista = b;
+    }
+    public void mostraCarrinho(){
+        System.out.println("Produtos no carrinho: ");
+        for (Produto a : this.lista){
+            System.out.print(a.toString() +" ");
+        }
     }
 
-    public void LimpaCarrinho(){
-        instance = null;
-    }
-
-    public void addProduto(String nome, int quantidade){
-        this.lista.add(new Produto (1,nome, quantidade));
+    public void addProduto(double preco,String nome){
+        this.lista.add(new Produto (preco,nome));
     }
 
     public void mostraProdutos(){
         System.out.println("produtos disponiveis:");
         for (Produto a: this.listaTotal){
-            System.out.print(a.toString() +" ");
-        }
-    }
-
-    public void mostraCarrinho(){
-        System.out.println("Produtos no carrinho");
-        for (Produto a : this.lista){
             System.out.print(a.toString() +" ");
         }
     }

@@ -12,6 +12,7 @@ public class Controller extends Thread{
 
     public void run(){
         Scanner scanner = new Scanner(System.in);
+        Carrinho.getInstance().PopulaCarrinho();
 
         while(true){
             System.out.println("1- Adicionar novo produto | 2- Finalizar Compra | 3- Produtos Disponiveis | 4- Produtos no carrinho");
@@ -21,7 +22,10 @@ public class Controller extends Thread{
                 System.out.println("Nome do produto");
                 String nome = scanner.next();
 
-                Carrinho.getInstance().addProduto(nome,1);
+                System.out.println("Preco do produto");
+                double preco = scanner.nextDouble();
+
+                Carrinho.getInstance().addProduto(preco,nome);
 
 
                 AtualizaCarrinhoEvent event = new AtualizaCarrinhoEvent(new Date());
@@ -29,6 +33,8 @@ public class Controller extends Thread{
                 for(AtualizaCarrinhoObserver observer : this.observers){
                     observer.chegou(event);
                 }
+
+
             }else if (valor ==3) {
                 Carrinho.getInstance().mostraProdutos();
             }
