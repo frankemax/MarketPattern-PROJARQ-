@@ -1,6 +1,10 @@
 public class Main {
 
     public static void main(String[] args) {
-	// write your code here
+        Carrinho car = Carrinho.getInstance();
+        System.out.println("car vazio: " + car.toString());
+
+        car.PopulaCarrinho();
+        System.out.println(car.toString());
     }
 }
