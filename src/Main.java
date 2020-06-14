@@ -4,7 +4,10 @@ public class Main {
         Carrinho car = Carrinho.getInstance();
         System.out.println("car vazio: " + car.toString());
 
-        car.PopulaCarrinho();
-        System.out.println(car.toString());
+        Carrinho.getInstance().populaProdutos();
+        Carrinho.getInstance().addProduto("Batata");
+
+
+
     }
 }

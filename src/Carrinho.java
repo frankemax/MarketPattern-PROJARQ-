@@ -2,6 +2,7 @@ import java.util.ArrayList;
 
 public class Carrinho {
     private ArrayList <Produto> lista;
+    private ArrayList <Produto> listaTotal;
     private static Carrinho instance;
 
     private Carrinho() {
@@ -15,26 +16,43 @@ public class Carrinho {
         return instance;
     }
 
-    public void PopulaCarrinho(){
+    public void populaProdutos(){
         ArrayList<Produto> a = new ArrayList<Produto>();
+        ArrayList<Produto> b = new ArrayList<Produto>();
 
-        Produto p1 = new Produto(1.0,"Batata",1);
-        Produto p2 = new Produto(2.0,"Feijao",10);
-        Produto p3 = new Produto(3.0,"Maça",1);
+        Produto p1 = new Produto("Batata");
+        Produto p2 = new Produto("Feijao");
+        Produto p3 = new Produto("Maca");
+        Produto p4 = new Produto("Repolho");
         a.add(p1);
         a.add(p2);
         a.add(p3);
+        a.add(p4);
 
-        this.lista= a;
+        this.listaTotal= a;
+        this.lista=b;
+    }
+
+    public void mostraProdutos(){
+        System.out.println("produtos disponiveis:");
+        for (Produto a: this.listaTotal){
+            System.out.print(a.toString() +" ");
+        }
+    }
+
+    public void mostraCarrinho(){
+        System.out.println("Produtos no carrinho");
+        for (Produto a : this.lista){
+            System.out.print(a.toString() +" ");
+        }
     }
 
     public void LimpaCarrinho(){
         instance = null;
     }
 
-    public void addProduto(String nome, int quantidade){
-        this.lista.add(new Produto (1,nome, quantidade));
-
+    public void addProduto(String nome){
+        this.lista.add(new Produto (nome));
 
     }
 
