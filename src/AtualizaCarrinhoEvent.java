@@ -1,14 +1,14 @@
 import java.util.Date;
 
 public class AtualizaCarrinhoEvent {
-    private final Date horaDaChegada;
+    private final Date horaDaAtualizacao;
 
-    public AtualizaCarrinhoEvent(Date horaDaChegada){
+    public AtualizaCarrinhoEvent(Date horaDaAtualizacao){
         super();
-        this.horaDaChegada = horaDaChegada;
+        this.horaDaAtualizacao = horaDaAtualizacao;
     }
 
-    public Date getHoraDaChegada() {
-        return horaDaChegada;
+    public Date getHoraDaAtualizacao() {
+        return horaDaAtualizacao;
     }
 }

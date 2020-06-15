@@ -50,6 +50,24 @@ public class Carrinho implements AtualizaCarrinhoObserver{
         }
     }
 
+    public void finalizaCompra(){
+
+        FactoryPagamento f1= new FactoryPagamento();
+        f1.valor=calculaPreco(this.lista);
+        f1.escolhePagamento();
+
+        this.lista= new ArrayList<Produto>();
+
+    }
+
+    public double calculaPreco(ArrayList<Produto> listaCompras) {
+        double precoTotal = 0;
+        for(Produto a : listaCompras){
+            precoTotal= a.getPreco() + precoTotal;
+        }
+        return precoTotal;
+    }
+
     @Override
     public String toString() {
         return "Carrinho{" +
@@ -59,6 +77,7 @@ public class Carrinho implements AtualizaCarrinhoObserver{
 
     @Override
     public void chegou(AtualizaCarrinhoEvent event) {
-        System.out.println("o carrinho foi atualizado");
+        System.out.println("o carrinho foi atualizado as " + event.getHoraDaAtualizacao());
+
     }
 }

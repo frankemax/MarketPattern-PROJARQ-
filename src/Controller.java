@@ -15,6 +15,7 @@ public class Controller extends Thread{
         Carrinho.getInstance().PopulaCarrinho();
 
         while(true){
+            System.out.println("\n");
             System.out.println("1- Adicionar novo produto | 2- Finalizar Compra | 3- Produtos Disponiveis | 4- Produtos no carrinho");
             int valor = scanner.nextInt();
 
@@ -34,8 +35,11 @@ public class Controller extends Thread{
                     observer.chegou(event);
                 }
 
+            }else if(valor ==2){
+                Carrinho.getInstance().finalizaCompra();
 
-            }else if (valor ==3) {
+            }
+            else if (valor ==3) {
                 Carrinho.getInstance().mostraProdutos();
             }
             else if (valor ==4) {
