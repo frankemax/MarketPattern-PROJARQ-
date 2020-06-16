@@ -30,9 +30,6 @@ public class FactoryPagamento {
                 CreditoPay c1 =  new CreditoPay();
                 c1.processaPagamento(valor);
                 break;
-
-
-
         }
 
 
